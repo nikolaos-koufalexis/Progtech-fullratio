@@ -2,75 +2,52 @@
 Ομοίως με την πρώτη άσκηση, υλοποιήστε την κλάση rational για την αναπαράσταση των ρητών
 αριθμών. Η κλάση αυτή πρέπει όμως τώρα να υποστηρίζει τις λειτουργίες που αναγράφονται στο αρχείο
 επικεφαλίδας fullratio.hpp, τα περιεχόμενα του οποίου είναι τα ακόλουθα:
-1 #ifndef __FULLRATIO_HPP__
+#ifndef __FULLRATIO_HPP__
 
-2 #define __FULLRATIO_HPP__
+#define __FULLRATIO_HPP__
 
-3
+#include <iostream>
 
-4 #include <iostream>
+class rational {
 
-5
+public:
 
-6 class rational {
+rational (int n, int d = 1);
 
-7 public:
+friend rational operator + (const rational &x, const rational &y);
 
-8 rational (int n, int d = 1);
+friend rational operator - (const rational &x, const rational &y);
 
-9
+friend rational operator * (const rational &x, const rational &y);
 
-10 friend rational operator + (const rational &x, const rational &y);
+friend rational operator / (const rational &x, const rational &y);
 
-11 friend rational operator - (const rational &x, const rational &y);
+friend std::ostream & operator << (std::ostream &out, const rational &x);
 
-12 friend rational operator * (const rational &x, const rational &y);
+private:
 
-13 friend rational operator / (const rational &x, const rational &y);
+int nom, den;
 
-14
+static int gcd (int a, int b);
 
-15 friend std::ostream & operator << (std::ostream &out, const rational &x);
+};
 
-16
-
-17 private:
-
-18 int nom, den;
-
-19
-
-20 static int gcd (int a, int b);
-
-21 };
-
-22
-
-23 #endif
+#endif
 
 Όπως και προηγουμένως, γράψτε τα παρακάτω σε ένα δεύτερο αρχείο με όνομα fullratio.cpp και
 συμπληρώστε κατάλληλα τις υλοποιήσεις των μεθόδων:
+#include <iostream>
 
-1 #include <iostream>
+#ifndef CONTEST
 
-2 #ifndef CONTEST
+#include ”fullratio.hpp”
 
-3 #include ”fullratio.hpp”
+#endif
 
-4 #endif
+using namespace std;
 
-5
+rational::rational (int n, int d) { ... }
 
-6 using namespace std;
+rational operator + (const rational &x, const rational &y) { ... }
 
-7
-
-8 rational::rational (int n, int d) { ... }
-
-9
-
-10 rational operator + (const rational &x, const rational &y) { ... }
-
-11
-
-12 ...
+...
