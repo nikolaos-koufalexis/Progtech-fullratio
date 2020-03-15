@@ -56,13 +56,3 @@ int rational::gcd(int a,int b){
    	    return gcd(b, a % b);  
     }  
 }
-
-int main(){
-	rational b(8,20);
-	rational a(8,-1);
-	rational c(5,6);
-	
-	cout<<a+b;
-	cout<<" is the result of "<<a<<" + "<<b;
-}
-
